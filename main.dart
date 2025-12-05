@@ -1,33 +1,30 @@
 import 'package:flutter/material.dart';
-import 'login_usuario.dart';
-import 'login_policial.dart';
-
+import 'screens/user_selection_screen.dart';
 
 void main() {
-  runApp(AppWidget());
+  runApp(const MyApp());
 }
 
-class AppWidget extends StatelessWidget {
+class AppData {
+  static String? userName;
+  static String? userCpf;
+  static String? userEmail;
+  static String? policeMatricula;
+  static String? policeName;
+  static List<Map<String, dynamic>> occurrences = [];
+  static List<Map<String, dynamic>> messages = [];
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Portal de Acesso',
+      title: 'SIGOR - Portal do Cidadão',
       theme: ThemeData(primarySwatch: Colors.blue),
-      initialRoute: '/login_usuario',
-      routes: {
-        '/login_usuario': (context) => LoginUsuario(),
-        '/login_policial': (context) => LoginPolicial(),
-      },
+      home: const UserSelectionScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
-
-
-
-
-
-
-
-
-
